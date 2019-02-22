@@ -1,0 +1,33 @@
+﻿<Window x:Class="CSharpPractice1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:local="clr-namespace:CSharpPractice1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid RenderTransformOrigin="0.682,0.476">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height ="Auto"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height ="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width ="*"></ColumnDefinition>
+            <ColumnDefinition Width ="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row ="0" Grid.ColumnSpan="2" HorizontalAlignment ="Center" VerticalAlignment="Center" Text="Enter your birth date" FontSize="25"></TextBlock>
+        <DatePicker Grid.Row="1" MaxWidth="200" FontSize="20" HorizontalAlignment="Stretch" SelectedDate="{Binding Birthday, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2"></DatePicker>
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment =" Center" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="20" Text="{Binding Age, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+        </TextBlock>
+        <TextBlock Grid.Row="3" Grid.ColumnSpan="2" VerticalAlignment =" Center" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="20" Text="{Binding WesternSign, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Grid.Row="4" Grid.ColumnSpan="2" VerticalAlignment =" Center" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="20" Text="{Binding ChineseSign, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+        <Button Grid.Row="5" Margin="30,10" Height="40" VerticalAlignment="Bottom" Content="Calculate" ToolTip="Calculate age, Western and Chinese zodiac sign" Command ="{Binding CalculateCommand}"></Button>
+        <Button Grid.Row="5" Grid.Column="1" Margin="30,10" Height="40" VerticalAlignment="Bottom" Content="Close" ToolTip="Close" Command ="{Binding CloseCommand}"></Button>
+        <fa:ImageAwesome Grid.Row="3" Grid.ColumnSpan="2"  Icon="Refresh" Width="50" Height="50" Spin="True" Visibility="{Binding LoaderVisibility, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></fa:ImageAwesome>
+    </Grid>
+</Window>
